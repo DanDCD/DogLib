@@ -1,15 +1,30 @@
 cmake_minimum_required(VERSION 3.22.1)
-project (ObserverSubject VERSION 1.0 DESCRIPTION "basic observer pattern implementation")
+project (DogLib VERSION 1.0 DESCRIPTION "basic observer pattern implementation")
 set(CMAKE_CXX_STANDARD 17)
 
-# add main library
-add_subdirectory(Lib)
+add_library(DogLib SHARED
+    include/dog.h
+    src/dog.cpp)
 
-# potentially add tests
+target_include_directories(DogLib PUBLIC include)
+
+
 include(CTest)
 # if top level project, enable testing
 if (${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
-    add_subdirectory(Tests)
+    add_executable(DogLibTest tests/dogTest.cpp)
+    target_link_libraries(DogLibTest PRIVATE DogLib)
+    add_test(Test DogLibTest COMMAND DogLibTest)
 endif ()
 
-enable_testing()
+# # add main library
+# add_subdirectory(Lib)
+
+# # potentially add tests
+# include(CTest)
+# # if top level project, enable testing
+# if (${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
+#     add_subdirectory(Tests)
+# endif ()
+
+# enable_testing()
