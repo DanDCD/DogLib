@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22.1)
-project (DogLib VERSION 1.0 DESCRIPTION "basic observer pattern implementation")
+project (DogLib VERSION 1.0 DESCRIPTION "basic library example")
 set(CMAKE_CXX_STANDARD 17)
 
 add_library(DogLib SHARED
