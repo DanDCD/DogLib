@@ -17,14 +17,3 @@ if (${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
     add_test(Test DogLibTest COMMAND DogLibTest)
 endif ()
 
-# # add main library
-# add_subdirectory(Lib)
-
-# # potentially add tests
-# include(CTest)
-# # if top level project, enable testing
-# if (${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
-#     add_subdirectory(Tests)
-# endif ()
-
-# enable_testing()
