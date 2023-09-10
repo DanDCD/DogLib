@@ -1,13 +1,15 @@
 cmake_minimum_required(VERSION 3.22.1)
-
 project (ObserverSubject VERSION 1.0 DESCRIPTION "basic observer pattern implementation")
 set(CMAKE_CXX_STANDARD 17)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
-add_library(ObserverSubject SHARED 
-    src/observer.cpp
-    src/subject.cpp)
+# add main library
+add_subdirectory(Lib)
 
+# potentially add tests
+include(CTest)
+# if top level project, enable testing
+if (${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
+    add_subdirectory(Tests)
+endif ()
 
-install(TARGETS ObserverSubject DESTINATION /usr/lib)
-install(FILES include/observer.h include/subject.h DESTINATION include)
+enable_testing()

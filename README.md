@@ -22,3 +22,8 @@ target_link_libraries(YourProject PRIVATE ObserverSubject)
 ```
 
 You should now be able to build and run using this library!
+
+## Testing
+Should you want to test this library:
+1. cd into build dir
+2. run `ctest`
